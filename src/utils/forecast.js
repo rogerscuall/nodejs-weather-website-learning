@@ -11,11 +11,12 @@ const forecast = (location, callback) => {
         } else if (response.body.error) {
             callback('Unable to find the location', undefined)      
         } else {
-            const {temperature, feelslike} = body.current
+            const {temperature, feelslike, humidity} = body.current
             callback( undefined, {
                 weatherDescription: body.current.weather_descriptions[0],
                 currentTemperature: temperature,
-                feelslike
+                feelslike,
+                humidity
             })
             // console.log(response.statusCode)
             // console.log(`The current weather is ${body.current.weather_descriptions[0]}. It is currently ${body.current.temperature} it feels like ${body.current.feelslike}`)

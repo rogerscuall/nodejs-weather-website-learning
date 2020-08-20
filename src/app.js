@@ -53,10 +53,10 @@ app.get('/weather', (req, res) => {
             res.send({error})
         } else {
             forecast(location, (error, wheather ) => {
-                const {weatherDescription, feelslike, currentTemperature} = wheather
+                const {weatherDescription, feelslike, currentTemperature, humidity} = wheather
                 res.send({
                     location: location.location,
-                    forecast: `The current weather in ${location.location} is ${weatherDescription}. It is currently ${currentTemperature} it feels like ${feelslike}`
+                    forecast: `The current weather in ${location.location} is ${weatherDescription}. It is currently ${currentTemperature} it feels like ${feelslike}. The humidity is ${humidity}.`
                 })
                 //res.send(`The current weather in ${location.location} is ${weatherDescription}. It is currently ${currentTemperature} it feels like ${feelslike}`)
             })}    
